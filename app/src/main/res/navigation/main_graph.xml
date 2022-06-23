@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.vnpay.hainv4.ui.fragment.HomeFragment"
+        android:label="HomeFragment" >
+        <action
+            android:id="@+id/action_homeFragment_to_hotelFragment"
+            app:destination="@id/hotelFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/giftFragment"
+        android:name="com.vnpay.hainv4.ui.fragment.GiftFragment"
+        android:label="GiftFragment" />
+    <fragment
+        android:id="@+id/notifyFragment"
+        android:name="com.vnpay.hainv4.ui.fragment.NotifyFragment"
+        android:label="NotifyFragment" />
+    <fragment
+        android:id="@+id/shopFragment"
+        android:name="com.vnpay.hainv4.ui.fragment.ShopFragment"
+        android:label="ShopFragment" />
+    <fragment
+        android:id="@+id/hotelFragment"
+        android:name="com.vnpay.hainv4.ui.fragment.HotelFragment"
+        android:label="HotelFragment" >
+        <action
+            android:id="@+id/action_hotelFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+</navigation>
