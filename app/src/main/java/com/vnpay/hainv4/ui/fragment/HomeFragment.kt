@@ -36,9 +36,6 @@ class HomeFragment : Fragment() {
     ): View? {
         binding = FragmentHomeBinding.inflate(inflater)
 
-        Log.d("anhhai","1:${viewModel.listHotel.value}")
-        Log.d("anhhai","2:${viewModel.item.value}")
-        Log.d("anhhai","3:${HotelManager.allHotel}")
 
         val viewPager2Adapter = ViewPager2Adapter(listImage)
         binding.vpOne.adapter = viewPager2Adapter

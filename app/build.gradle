@@ -119,6 +119,7 @@ dependencies {
     // Add the dependency for the Firebase SDK for Google Analytics
     // When using the BoM, don't specify versions in Firebase dependencies
     implementation 'com.google.firebase:firebase-analytics-ktx'
+    implementation 'com.google.firebase:firebase-messaging:23.0.6'
 
 
     implementation 'com.google.firebase:firebase-core:16.0.6'

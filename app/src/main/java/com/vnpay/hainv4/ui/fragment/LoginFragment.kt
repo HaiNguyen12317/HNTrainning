@@ -83,6 +83,7 @@ class LoginFragment : Fragment(){
 
         sharedPreferences = requireContext().getSharedPreferences(SHARED_PREF, Context.MODE_PRIVATE)
         isRemembered = sharedPreferences.getBoolean(KEY_CHECKBOX, false)
+
         if (isRemembered) {
             val intent = Intent(requireContext(), MainActivity::class.java)
             startActivity(intent)

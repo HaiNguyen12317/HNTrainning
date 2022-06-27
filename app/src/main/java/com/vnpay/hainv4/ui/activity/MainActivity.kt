@@ -11,10 +11,7 @@ import androidx.core.view.GravityCompat
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.onNavDestinationSelected
-import androidx.navigation.ui.setupActionBarWithNavController
-import androidx.navigation.ui.setupWithNavController
+import androidx.navigation.ui.*
 import com.vnpay.hainv4.R
 import com.vnpay.hainv4.databinding.ActivityMainBinding
 import com.vnpay.hainv4.ui.fragment.LoginFragment.Companion.KEY_USERNAME
@@ -33,19 +30,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-//        val service = MyFireBaseService()
-//        service.sendNotification("{\n" +
-//                "  \"message\":{\n" +
-//                "    \"token\":\"bk3RNwTe3H0:CI2k_HHwgIpoDKCIZvvDMExUdFQ3P1...\",\n" +
-//                "    \"notification\":{\n" +
-//                "      \"title\":\"Portugal vs. Denmark\",\n" +
-//                "      \"body\":\"great match!\"\n" +
-//                "    }\n" +
-//                "  }\n" +
-//                "}")
-
-
 
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.nav_hos_main_fragment) as NavHostFragment
@@ -90,6 +74,9 @@ class MainActivity : AppCompatActivity() {
         } else {
             super.onBackPressed()
         }
+    }
+    override fun onSupportNavigateUp(): Boolean {
+        return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
 }
 

@@ -9,6 +9,7 @@ import com.vnpay.hainv4.model.Model
 object HotelManager {
     var item = arrayListOf<Item>()
     var allHotel = arrayListOf<Hotel>()
+    var all = arrayListOf<Hotel>()
     var model: Model? = null
 
 
@@ -54,12 +55,22 @@ object HotelManager {
         }
         return noibat
     }
+    fun getHotel(): ArrayList<Hotel> {
+        val list = all
+        list?.forEach{
+            allHotel.addAll(listOf(it))
+        }
+        return allHotel
+    }
 
     fun getAllHotel() {
-        getDecuHotel()
-        getNoibatHotel()
-        getThanhHoaHotel()
+//        getDecuHotel()
+//        getNoibatHotel()
+//        getThanhHoaHotel()
+//        allHotelLiveData.postValue(allHotel)
+//        allItem.postValue(item)
+//        allHotelLiveData.postValue(all)
+        getHotel()
         allHotelLiveData.postValue(allHotel)
-        allItem.postValue(item)
     }
 }

@@ -2,24 +2,25 @@ package com.vnpay.hainv4.vm
 
 import android.app.Application
 import android.util.Log
-import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import com.vnpay.hainv4.database.AccountDatabase
 import com.vnpay.hainv4.manager.HotelManager
 import com.vnpay.hainv4.model.*
 import com.vnpay.hainv4.network.HotelClient
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import java.util.ArrayList
 
+
 class MainViewModel(application: Application) : AndroidViewModel(application) {
 
     init {
         getAllHotel()
+        getHotel()
+        Log.d("anhhai","hottt : ${listHotels.value?.size}")
     }
 
     private val accountDao = AccountDatabase.getInstance(application).getAccountDao()
@@ -32,9 +33,9 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         accountDao.insertAccount(account)
     }
 
-    private fun getHotels(): LiveData<ArrayList<Hotel>> = HotelManager.listHotel
-    val listHotel: LiveData<ArrayList<Hotel>>
-        get() = getHotels()
+//    private fun getHotels(): LiveData<ArrayList<Hotel>> = HotelManager.listHotel
+//    val listHotel: LiveData<ArrayList<Hotel>>
+//        get() = getHotels()
 
     private fun getItems(): LiveData<ArrayList<Item>> = HotelManager.listItem
     val item: LiveData<ArrayList<Item>>
@@ -44,9 +45,10 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     private fun getAllHotel() {
         viewModelScope.launch {
             var hotels: Call<Model> = HotelClient.invoke().getAllHotel()
+            val hotel = HotelClient.invoke().getAllHotel()
+            Log.d("anhhai","hotel invoke ${hotel.toString()}")
             hotels.enqueue(object : Callback<Model> {
                 override fun onResponse(call: Call<Model>, response: Response<Model>) {
-                    Log.d("anhhai","response: ${response.code()}, ${response.body()}")
                     if (response.isSuccessful) {
                         response.body().let {
                             if (it != null) {
@@ -67,6 +69,46 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
             })
         }
 
+    }
+
+    private fun getHotell(): LiveData<ArrayList<Hotel>> = HotelManager.listHotel
+    val listHotels: LiveData<ArrayList<Hotel>>
+    get() = getHotell()
+
+    private fun getHotel(){
+        viewModelScope.launch {
+
+            var hotels: Call<List<Hotel>> = HotelClient.invoke().getHotel()
+            hotels.enqueue(object : Callback<List<Hotel>> {
+
+                override fun onResponse(call: Call<List<Hotel>>, response: Response<List<Hotel>>) {
+                    if (response.isSuccessful) {
+                        response.body().let {
+                            if (it != null) {
+                                HotelManager.all = it as ArrayList<Hotel>
+                                HotelManager.getAllHotel()
+                            }
+                        }
+                    }
+                }
+
+                override fun onFailure(call: Call<List<Hotel>>, t: Throwable) {
+                    Log.d("Error", "Call API error $t")
+                    viewModelScope.launch {
+                        hotels = HotelClient.invoke().getHotel()
+                    }
+                }
+
+            }
+            )
+
+
+        }
+//        viewModelScope.launch {
+//            val hotels = HotelClient.invoke().getHotel()
+//            Log.d("anhhai","hotel moi: ${hotels.toString()}")
+//            HotelManager.all = hotels as ArrayList<Hotel>
+//        }
     }
 }
 
