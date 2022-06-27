@@ -3,6 +3,7 @@ package com.vnpay.hainv4.ui.activity
 import android.app.Notification
 import android.app.NotificationChannel
 import android.app.NotificationManager
+import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
@@ -11,6 +12,7 @@ import android.os.Build.VERSION.SDK
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
@@ -24,6 +26,7 @@ import com.vnpay.hainv4.R
 import com.vnpay.hainv4.databinding.ActivityMainBinding
 import com.vnpay.hainv4.ui.fragment.LoginFragment.Companion.KEY_USERNAME
 import com.vnpay.hainv4.ui.fragment.LoginFragment.Companion.SHARED_PREF
+import com.vnpay.hainv4.ui.fragment.NotificationLayout
 import okhttp3.internal.notify
 import java.util.prefs.Preferences
 
@@ -67,23 +70,8 @@ class MainActivity : AppCompatActivity() {
 
         }
         binding.animationView.setOnClickListener {
-            var builder = Notification.Builder(this)
-                .setSmallIcon(R.mipmap.ic_launcher)
-                .setContentTitle("My notification")
-                .setContentText("This is my notification")
-            val notificationManager: NotificationManager =
-                getSystemService(NOTIFICATION_SERVICE) as NotificationManager
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                val channel = NotificationChannel(
-                        "1",
-                        "This is notification",
-                        NotificationManager.IMPORTANCE_HIGH
-                )
-                notificationManager.createNotificationChannel(channel)
-                builder.setChannelId(channel.id)
-            }
-            val notification = builder.build()
-            notificationManager.notify(1,notification)
+            getNotification()
+            Toast.makeText(this,"click",Toast.LENGTH_LONG).show()
         }
 
 
@@ -110,23 +98,27 @@ class MainActivity : AppCompatActivity() {
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
 
+    private fun getNotification(){
+        val builder: NotificationCompat.Builder = NotificationCompat.Builder(this)
+            .setSmallIcon(R.mipmap.ic_launcher)
+            .setContentTitle("Notifications Example")
+            .setContentText("This is a test notification")
+//        val notificationIntent = Intent(this, NotificationLayout::class.java)
+//        val contentIntent = PendingIntent.getActivity(
+//            this, 0, notificationIntent,
+//            PendingIntent.FLAG_UPDATE_CURRENT
+//        )
+//        builder.setContentIntent(contentIntent)
 
-    private fun createNotificationChannel() {
-        // Create the NotificationChannel, but only on API 26+ because
-        // the NotificationChannel class is new and not in the support library
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            val name = getString(R.string.project_id)
-            val descriptionText = getString(R.string.project_id)
-            val importance = NotificationManager.IMPORTANCE_DEFAULT
-            val channel = NotificationChannel(Const.CHANNEL_ID, name, importance).apply {
-                description = descriptionText
-            }
-            // Register the channel with the system
-            val notificationManager: NotificationManager =
-                getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-            notificationManager.createNotificationChannel(channel)
+        // Add as notification
+        val manager = getSystemService(NOTIFICATION_SERVICE) as NotificationManager
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
+            val channel = NotificationChannel("1","notify",NotificationManager.IMPORTANCE_HIGH)
+            manager.createNotificationChannel(channel)
+            builder.setChannelId(channel.id)
         }
-
+        manager.notify(0, builder.build())
     }
+
 }
 
