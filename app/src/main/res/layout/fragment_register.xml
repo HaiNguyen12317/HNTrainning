@@ -60,7 +60,6 @@
             >
 
             <EditText
-                android:lines="1"
                 android:id="@+id/edt_password"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -68,6 +67,7 @@
                 android:background="@drawable/botron"
                 android:gravity="center_vertical"
                 android:inputType="textPassword"
+                android:lines="1"
                 android:paddingLeft="20dp"
                 android:textSize="18sp" />
             <TextView
@@ -99,15 +99,17 @@
             android:layout_marginRight="40dp">
 
             <EditText
-                android:lines="1"
                 android:id="@+id/edt_phone"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="19dp"
                 android:background="@drawable/botron"
                 android:gravity="center_vertical"
+                android:lines="1"
                 android:paddingLeft="20dp"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                android:inputType="phone"
+                />
             <TextView
                 android:layout_marginTop="10dp"
                 android:layout_width="wrap_content"

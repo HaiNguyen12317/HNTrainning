@@ -18,4 +18,7 @@ interface AccountDao {
     @Delete
     suspend fun deleteAccount(account: Account)
 
+    @Query("delete from account where user_name = :useName")
+    suspend fun delete(useName : String)
+
 }

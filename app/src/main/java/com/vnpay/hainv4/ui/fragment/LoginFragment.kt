@@ -16,6 +16,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.vnpay.hainv4.databinding.FragmentLoginBinding
 import com.vnpay.hainv4.manager.HotelManager
+import com.vnpay.hainv4.model.Account
 import com.vnpay.hainv4.network.HotelClient
 import com.vnpay.hainv4.network.HotelService
 import com.vnpay.hainv4.ui.activity.MainActivity
@@ -71,6 +72,12 @@ class LoginFragment : Fragment(){
                             }
                         }
 
+                    }
+                    if(accounts.isEmpty()){
+                        lifecycleScope.launch(Dispatchers.Main) {
+                            binding.tvError.visibility = View.VISIBLE
+                            binding.edtPassword.text.clear()
+                        }
                     }
                 }
             } else

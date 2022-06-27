@@ -18,7 +18,7 @@ import java.util.ArrayList
 class MainViewModel(application: Application) : AndroidViewModel(application) {
 
     init {
-        getAllHotel()
+//        getAllHotel()
         getHotel()
         Log.d("anhhai","hottt : ${listHotels.value?.size}")
     }
@@ -32,6 +32,9 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     suspend fun addAccount(account: Account) {
         accountDao.insertAccount(account)
     }
+    suspend fun deleteAccount(string: String){
+        accountDao.delete(string)
+    }
 
 //    private fun getHotels(): LiveData<ArrayList<Hotel>> = HotelManager.listHotel
 //    val listHotel: LiveData<ArrayList<Hotel>>
@@ -42,34 +45,34 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         get() = getItems()
 
 
-    private fun getAllHotel() {
-        viewModelScope.launch {
-            var hotels: Call<Model> = HotelClient.invoke().getAllHotel()
-            val hotel = HotelClient.invoke().getAllHotel()
-            Log.d("anhhai","hotel invoke ${hotel.toString()}")
-            hotels.enqueue(object : Callback<Model> {
-                override fun onResponse(call: Call<Model>, response: Response<Model>) {
-                    if (response.isSuccessful) {
-                        response.body().let {
-                            if (it != null) {
-                                HotelManager.model = it
-                                HotelManager.getAllHotel()
-                                Log.d("anhhai", "vm: ${HotelManager.allHotel.size}")
-                            }
-                        }
-                    }
-                }
-
-                override fun onFailure(call: Call<Model>, t: Throwable) {
-                    Log.d("AGT", "CALL API ERROR anhhai $t")
-                    viewModelScope.launch {
-                        hotels = HotelClient.invoke().getAllHotel()
-                    }
-                }
-            })
-        }
-
-    }
+//    private fun getAllHotel() {
+//        viewModelScope.launch {
+//            var hotels: Call<Model> = HotelClient.invoke().getAllHotel()
+//            val hotel = HotelClient.invoke().getAllHotel()
+//            Log.d("anhhai","hotel invoke ${hotel.toString()}")
+//            hotels.enqueue(object : Callback<Model> {
+//                override fun onResponse(call: Call<Model>, response: Response<Model>) {
+//                    if (response.isSuccessful) {
+//                        response.body().let {
+//                            if (it != null) {
+//                                HotelManager.model = it
+//                                HotelManager.getAllHotel()
+//                                Log.d("anhhai", "vm: ${HotelManager.allHotel.size}")
+//                            }
+//                        }
+//                    }
+//                }
+//
+//                override fun onFailure(call: Call<Model>, t: Throwable) {
+//                    Log.d("AGT", "CALL API ERROR anhhai $t")
+//                    viewModelScope.launch {
+//                        hotels = HotelClient.invoke().getAllHotel()
+//                    }
+//                }
+//            })
+//        }
+//
+//    }
 
     private fun getHotell(): LiveData<ArrayList<Hotel>> = HotelManager.listHotel
     val listHotels: LiveData<ArrayList<Hotel>>
@@ -104,11 +107,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
 
 
         }
-//        viewModelScope.launch {
-//            val hotels = HotelClient.invoke().getHotel()
-//            Log.d("anhhai","hotel moi: ${hotels.toString()}")
-//            HotelManager.all = hotels as ArrayList<Hotel>
-//        }
+//
     }
 }
 

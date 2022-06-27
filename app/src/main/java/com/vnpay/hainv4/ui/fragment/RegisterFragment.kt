@@ -16,6 +16,7 @@ import com.vnpay.hainv4.vm.MainViewModel
 import com.vnpay.hainv4.vm.MainViewModelFactory
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+
 class RegisterFragment : Fragment() {
     private lateinit var binding: FragmentRegisterBinding
     private val viewModel: MainViewModel by viewModels() {
@@ -33,24 +34,39 @@ class RegisterFragment : Fragment() {
             val password = binding.edtPassword.text.toString()
             val phone = binding.edtPhone.text.toString()
             val check: Boolean = binding.cbGrand.isChecked
-            if (check || password.length > 6 || !password.equals(" ")) {
-                lifecycleScope.launch(Dispatchers.IO) {
-                    viewModel.addAccount(
-                        Account(userName = userName, password = password, phone = phone.toInt())
-                    )
+            if (check) {
+                if (binding.edtUseName.text.isEmpty() || binding.edtPassword.text.isEmpty() || binding.edtPhone.text.isEmpty()) {
+                    Toast.makeText(
+                        requireContext().applicationContext,
+                        "Vui lòng nhập đầy đủ thông tin",
+                        Toast.LENGTH_LONG
+                    ).show()
+                } else{
+                    lifecycleScope.launch(Dispatchers.IO) {
+                        if(binding.edtPhone.text.toString().equals(""))
+                        viewModel.addAccount(
+                            Account(userName = userName, password = password, phone = phone.toInt())
+                        )
+                    }
+                    Toast.makeText(requireContext(), "Đăng kí thành công", Toast.LENGTH_LONG).show()
+                    val action =
+                        RegisterFragmentDirections.actionRegisterFragmentToConfirmFragment()
+                    findNavController().navigate(action)
                 }
-                Toast.makeText(requireContext(), "Đăng kí thành công", Toast.LENGTH_LONG).show()
-                val action =
-                    RegisterFragmentDirections.actionRegisterFragmentToConfirmFragment()
-                findNavController().navigate(action)
             } else {
-
                 Toast.makeText(
                     requireContext().applicationContext,
                     "Chưa chấp nhận thỏa thuận",
                     Toast.LENGTH_LONG
                 )
                     .show()
+//            } else {
+//                Toast.makeText(
+//                    requireContext().applicationContext,
+//                    "Vui lòng nhập đầy đủ thông tin",
+//                    Toast.LENGTH_LONG
+//                )
+//            }
             }
         }
         return binding.root
