@@ -25,6 +25,7 @@ import androidx.navigation.ui.*
 import com.vnpay.hainv4.Const.Const
 import com.vnpay.hainv4.R
 import com.vnpay.hainv4.databinding.ActivityMainBinding
+import com.vnpay.hainv4.ui.fragment.HomeFragment
 import com.vnpay.hainv4.ui.fragment.LoginFragment.Companion.KEY_USERNAME
 import com.vnpay.hainv4.ui.fragment.LoginFragment.Companion.SHARED_PREF
 import com.vnpay.hainv4.ui.fragment.NotificationLayout
@@ -102,10 +103,14 @@ class MainActivity : AppCompatActivity() {
 
     private fun pushNotification() {
         val remoteView = RemoteViews(packageName, R.layout.layout_notification)
+        val intent = Intent(this, MainActivity::class.java).apply {
+            flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        }
+        val pendingIntent: PendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_IMMUTABLE)
         val builder = Notification.Builder(this)
             .setSmallIcon(R.mipmap.ic_launcher)
             .setContentTitle("Notifications Demo")
-            .setContentText("This is a test notification")
+            .setContentText("This is a test notification").setContentIntent(pendingIntent).setAutoCancel(true)
         // Add as notification
         val manager = getSystemService(NOTIFICATION_SERVICE) as NotificationManager
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
@@ -127,6 +132,8 @@ class MainActivity : AppCompatActivity() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             builder.setCustomContentView(remoteView)
         }
+
+
         manager.notify(1, builder.build())
     }
 
