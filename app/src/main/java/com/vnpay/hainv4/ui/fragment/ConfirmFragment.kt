@@ -37,6 +37,7 @@ class ConfirmFragment : Fragment() {
                 binding.edtOtp4.text.clear()
                 binding.edtOtp5.text.clear()
                 binding.edtOtp6.text.clear()
+                binding.edtOtp1.addTextChangedListener(GenericTextWatcher(binding.edtOtp1,editText))
             }else{
                 val intent = Intent(requireContext(), MainActivity::class.java)
                 startActivity(intent)

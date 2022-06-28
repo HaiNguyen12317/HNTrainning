@@ -43,7 +43,6 @@ class RegisterFragment : Fragment() {
                     ).show()
                 } else{
                     lifecycleScope.launch(Dispatchers.IO) {
-                        if(binding.edtPhone.text.toString().equals(""))
                         viewModel.addAccount(
                             Account(userName = userName, password = password, phone = phone.toInt())
                         )

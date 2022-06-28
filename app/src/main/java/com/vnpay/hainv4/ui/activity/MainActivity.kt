@@ -12,6 +12,7 @@ import android.os.Build.VERSION.SDK
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.RemoteViews
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.NotificationCompat
@@ -53,7 +54,7 @@ class MainActivity : AppCompatActivity() {
 //        setSupportActionBar(binding.toolbar)
         setupActionBarWithNavController(navController, appBarConfiguration)
         binding.bottomNav.setupWithNavController(navController)
-
+        binding.navPage.setupWithNavController(navController)
         preferences = applicationContext.getSharedPreferences(SHARED_PREF, Context.MODE_PRIVATE)
 
         val username = preferences.getString(KEY_USERNAME, "")
@@ -70,11 +71,11 @@ class MainActivity : AppCompatActivity() {
 
         }
         binding.animationView.setOnClickListener {
-            getNotification()
-            Toast.makeText(this,"click",Toast.LENGTH_LONG).show()
+//            getNotification()
+//            Toast.makeText(this, "click", Toast.LENGTH_LONG).show()
+            pushNotification()
+//            createChannel()
         }
-
-
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -98,26 +99,35 @@ class MainActivity : AppCompatActivity() {
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
 
-    private fun getNotification(){
-        val builder: NotificationCompat.Builder = NotificationCompat.Builder(this)
-            .setSmallIcon(R.mipmap.ic_launcher)
-            .setContentTitle("Notifications Example")
-            .setContentText("This is a test notification")
-//        val notificationIntent = Intent(this, NotificationLayout::class.java)
-//        val contentIntent = PendingIntent.getActivity(
-//            this, 0, notificationIntent,
-//            PendingIntent.FLAG_UPDATE_CURRENT
-//        )
-//        builder.setContentIntent(contentIntent)
 
+    private fun pushNotification() {
+        val remoteView = RemoteViews(packageName, R.layout.layout_notification)
+        val builder = Notification.Builder(this)
+            .setSmallIcon(R.mipmap.ic_launcher)
+            .setContentTitle("Notifications Demo")
+            .setContentText("This is a test notification")
         // Add as notification
         val manager = getSystemService(NOTIFICATION_SERVICE) as NotificationManager
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
-            val channel = NotificationChannel("1","notify",NotificationManager.IMPORTANCE_HIGH)
-            manager.createNotificationChannel(channel)
-            builder.setChannelId(channel.id)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            val notificationChannel = NotificationChannel(
+                "1",
+                "notify",
+                NotificationManager.IMPORTANCE_HIGH
+            )
+                .apply {
+                    setShowBadge(false)
+                }
+            notificationChannel.enableLights(true)
+            notificationChannel.lightColor = R.color.purple_200
+            notificationChannel.enableVibration(true)
+            notificationChannel.description = getString(R.string.project_id)
+            manager.createNotificationChannel(notificationChannel)
+            builder.setChannelId(notificationChannel.id)
         }
-        manager.notify(0, builder.build())
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            builder.setCustomContentView(remoteView)
+        }
+        manager.notify(1, builder.build())
     }
 
 }

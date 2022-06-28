@@ -36,26 +36,26 @@ class GenericTextWatcher(view: View, editText: List<EditText>) : TextWatcher {
                 if (text.length == 1) {
                     editText[3].requestFocus()
                 } else if (text.isEmpty()) {
-                    editText[1].requestFocus()
+                    editText[0].requestFocus()
                 }
             }
             R.id.edt_otp4 -> {
                 if (text.length == 1) {
                     editText[4].requestFocus()
                 } else if (text.isEmpty()) {
-                    editText[2].requestFocus()
+                    editText[0].requestFocus()
                 }
             }
             R.id.edt_otp5 -> {
                 if (text.length == 1) {
                     editText[5].requestFocus()
                 } else if (text.isEmpty()) {
-                    editText[3].requestFocus()
+                    editText[0].requestFocus()
                 }
             }
             R.id.edt_otp6 -> {
                 if (text.isEmpty()) {
-                    editText[4].requestFocus()
+                    editText[0].requestFocus()
                 }
             }
 
