@@ -18,10 +18,10 @@
             android:layout_gravity="center"
             android:gravity="center"
             android:layout_marginLeft="40dp"
-            android:textColor="#ED8A8A"
+            android:textColor="@color/error"
             android:layout_marginRight="40dp"
             android:visibility="invisible"
-            android:text="Mât khẩu không đươc ngắn hơn 6 và dài hơn 20, không chứa dấu cách"
+            android:text="@string/error_pass"
             />
         <RelativeLayout
             android:layout_width="match_parent"
@@ -43,7 +43,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Tên đăng nhập"
+                android:text="@string/user_name"
                 android:textSize="15sp"
                 android:background="@color/white"
                 android:paddingLeft="5dp"
@@ -114,7 +114,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Số điện thoại"
+                android:text="@string/phone"
                 android:textSize="15sp"
                 android:background="@color/white"
                 android:paddingLeft="5dp"
@@ -143,7 +143,7 @@
                 android:layout_marginLeft="50dp"
                 android:layout_marginTop="10dp"
                 android:background="@color/white"
-                android:text="Tôi đồng ý với các"
+                android:text="@string/agree"
                 android:textSize="12sp" />
 
             <TextView
@@ -155,7 +155,7 @@
                 android:background="@color/white"
                 android:paddingLeft="5dp"
                 android:paddingRight="5dp"
-                android:text="Điều khoản và chính sách sử dụng"
+                android:text="@string/term"
                 android:textColor="#124875"
                 android:textSize="12sp"
                 android:textStyle="italic" />
@@ -166,7 +166,7 @@
             android:layout_height="45dp"
             android:layout_marginTop="50dp"
             android:textSize="15sp"
-            android:text="Đăng kí"
+            android:text="@string/register"
             android:background="@drawable/botron"
             />
     </LinearLayout>

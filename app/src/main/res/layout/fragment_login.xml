@@ -30,29 +30,29 @@
             android:layout_height="60dp"
             android:layout_marginLeft="40dp"
             android:layout_marginRight="40dp">
-
             <EditText
                 android:id="@+id/edt_use_name"
+                android:layout_marginTop="19dp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="19dp"
                 android:background="@drawable/botron"
                 android:gravity="center_vertical"
-                android:lines="1"
-                android:maxLength="20"
                 android:paddingLeft="20dp"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                android:maxLength="20"
+                android:lines="1"
+                />
+
             <TextView
-                android:layout_marginTop="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Tên đăng nhập"
-                android:textSize="15sp"
-                android:background="@color/white"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/backgroundColor"
                 android:paddingLeft="5dp"
                 android:paddingRight="5dp"
-                android:layout_marginLeft="15dp"
-                />
+                android:text="Tên đăng nhập"
+                android:textSize="15sp" />
         </RelativeLayout>
         <RelativeLayout
             android:layout_width="match_parent"
@@ -74,18 +74,18 @@
                 android:textSize="18sp"
                 android:lines="1"
                 />
+
             <TextView
 
-                android:layout_marginTop="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Mật khẩu"
-                android:textSize="15sp"
-                android:background="@color/white"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/backgroundColor"
                 android:paddingLeft="5dp"
                 android:paddingRight="5dp"
-                android:layout_marginLeft="15dp"
-                />
+                android:text="Mật khẩu"
+                android:textSize="15sp" />
             <ImageView
                 android:padding="3dp"
                 android:layout_width="30dp"
@@ -115,20 +115,21 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="50dp"
                 android:layout_marginTop="10dp"
-                android:background="@color/white"
+                android:background="@color/backgroundColor"
                 android:paddingLeft="5dp"
                 android:paddingRight="5dp"
                 android:text="Nhớ mật khẩu"
                 android:textSize="12sp" />
 
             <TextView
+                android:id="@+id/tv_forgot_password"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_marginLeft="40dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="19dp"
-                android:background="@color/white"
+                android:background="@color/backgroundColor"
                 android:paddingLeft="5dp"
                 android:paddingRight="5dp"
                 android:text="Quên mật khẩu?"

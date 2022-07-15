@@ -6,22 +6,33 @@
         <entry key="..\:/Users/haing/AndroidStudioProjects/HNTrainning/app/src/main/res/drawable/ic_baseline_pause_24.xml" value="0.124" />
         <entry key="..\:/Users/haing/AndroidStudioProjects/HNTrainning/app/src/main/res/drawable/ic_baseline_skip_next_24.xml" value="0.124" />
         <entry key="..\:/Users/haing/AndroidStudioProjects/HNTrainning/app/src/main/res/drawable/ic_baseline_skip_previous_24.xml" value="0.124" />
+        <entry key="..\:/Users/haing/AndroidStudioProjects/HNTrainning/app/src/main/res/layout-v24/activity_main.xml" value="0.264" />
+        <entry key="..\:/Users/haing/AndroidStudioProjects/HNTrainning/app/src/main/res/layout/activity_barchart.xml" value="0.2421875" />
         <entry key="..\:/Users/haing/AndroidStudioProjects/HNTrainning/app/src/main/res/layout/activity_login.xml" value="0.25052083333333336" />
         <entry key="..\:/Users/haing/AndroidStudioProjects/HNTrainning/app/src/main/res/layout/activity_main.xml" value="0.256140350877193" />
+        <entry key="..\:/Users/haing/AndroidStudioProjects/HNTrainning/app/src/main/res/layout/fragment_chart.xml" value="0.19270833333333334" />
         <entry key="..\:/Users/haing/AndroidStudioProjects/HNTrainning/app/src/main/res/layout/fragment_confirm.xml" value="0.1" />
         <entry key="..\:/Users/haing/AndroidStudioProjects/HNTrainning/app/src/main/res/layout/fragment_flight.xml" value="0.23229166666666667" />
+        <entry key="..\:/Users/haing/AndroidStudioProjects/HNTrainning/app/src/main/res/layout/fragment_forgot_password.xml" value="0.2421875" />
+        <entry key="..\:/Users/haing/AndroidStudioProjects/HNTrainning/app/src/main/res/layout/fragment_gift.xml" value="0.22447916666666667" />
         <entry key="..\:/Users/haing/AndroidStudioProjects/HNTrainning/app/src/main/res/layout/fragment_home.xml" value="0.1" />
         <entry key="..\:/Users/haing/AndroidStudioProjects/HNTrainning/app/src/main/res/layout/fragment_hotel.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/haing/AndroidStudioProjects/HNTrainning/app/src/main/res/layout/fragment_login.xml" value="0.1" />
-        <entry key="..\:/Users/haing/AndroidStudioProjects/HNTrainning/app/src/main/res/layout/fragment_notify.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/haing/AndroidStudioProjects/HNTrainning/app/src/main/res/layout/fragment_login.xml" value="0.2" />
+        <entry key="..\:/Users/haing/AndroidStudioProjects/HNTrainning/app/src/main/res/layout/fragment_notify.xml" value="0.2" />
+        <entry key="..\:/Users/haing/AndroidStudioProjects/HNTrainning/app/src/main/res/layout/fragment_open_chart.xml" value="0.18541666666666667" />
         <entry key="..\:/Users/haing/AndroidStudioProjects/HNTrainning/app/src/main/res/layout/fragment_register.xml" value="0.1" />
+        <entry key="..\:/Users/haing/AndroidStudioProjects/HNTrainning/app/src/main/res/layout/fragment_setting.xml" value="0.4" />
         <entry key="..\:/Users/haing/AndroidStudioProjects/HNTrainning/app/src/main/res/layout/fragment_shop.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/haing/AndroidStudioProjects/HNTrainning/app/src/main/res/layout/image_holder.xml" value="0.17395833333333333" />
         <entry key="..\:/Users/haing/AndroidStudioProjects/HNTrainning/app/src/main/res/layout/item_child.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/haing/AndroidStudioProjects/HNTrainning/app/src/main/res/layout/item_parent.xml" value="0.1526268115942029" />
         <entry key="..\:/Users/haing/AndroidStudioProjects/HNTrainning/app/src/main/res/layout/layout_header.xml" value="0.15052083333333333" />
         <entry key="..\:/Users/haing/AndroidStudioProjects/HNTrainning/app/src/main/res/layout/layout_notification.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/haing/AndroidStudioProjects/HNTrainning/app/src/main/res/layout/new_app_widget.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/haing/AndroidStudioProjects/HNTrainning/app/src/main/res/layout/new_app_widget_configure.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/haing/AndroidStudioProjects/HNTrainning/app/src/main/res/layout/parent_item.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/haing/AndroidStudioProjects/HNTrainning/app/src/main/res/menu/drawer_nav_menu.xml" value="0.25052083333333336" />
+        <entry key="..\:/Users/haing/AndroidStudioProjects/HNTrainning/app/src/main/res/xml/my_widget.xml" value="0.25416666666666665" />
       </map>
     </option>
   </component>

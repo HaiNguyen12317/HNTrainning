@@ -55,7 +55,7 @@ object HotelManager {
         }
         return noibat
     }
-    fun getHotel(): ArrayList<Hotel> {
+    private fun getHotel(): ArrayList<Hotel> {
         val list = all
         list?.forEach{
             allHotel.addAll(listOf(it))

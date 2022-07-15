@@ -29,28 +29,28 @@ class GenericTextWatcher(view: View, editText: List<EditText>) : TextWatcher {
                 if (text.length == 1) {
                     editText[2].requestFocus()
                 } else if (text.isEmpty()) {
-                    editText[0].requestFocus()
+                    editText[1].requestFocus()
                 }
             }
             R.id.edt_otp3 -> {
                 if (text.length == 1) {
                     editText[3].requestFocus()
                 } else if (text.isEmpty()) {
-                    editText[0].requestFocus()
+                    editText[2].requestFocus()
                 }
             }
             R.id.edt_otp4 -> {
                 if (text.length == 1) {
                     editText[4].requestFocus()
                 } else if (text.isEmpty()) {
-                    editText[0].requestFocus()
+                    editText[3].requestFocus()
                 }
             }
             R.id.edt_otp5 -> {
                 if (text.length == 1) {
                     editText[5].requestFocus()
                 } else if (text.isEmpty()) {
-                    editText[0].requestFocus()
+                    editText[4].requestFocus()
                 }
             }
             R.id.edt_otp6 -> {

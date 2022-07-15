@@ -3,19 +3,28 @@
     <item
         android:id="@+id/homeFragment"
         android:icon="@drawable/ic_baseline_home_24"
-        android:title="Trang chủ" />
+        android:title="@string/trang_chu" />
 
+<!--    <item-->
+<!--        android:id="@+id/notifyFragment"-->
+<!--        android:icon="@drawable/ic_baseline_mail_24"-->
+<!--        android:title="@string/thong_bao" />-->
     <item
         android:id="@+id/notifyFragment"
-        android:icon="@drawable/ic_baseline_mail_24"
-        android:title="Thông báo" />
+        android:icon="@drawable/ic_baseline_show_chart_24"
+        android:title="Line Chart" />
     <item
         android:id="@+id/shopFragment"
         android:icon="@drawable/ic_baseline_shopping_cart_24"
-        android:title="Mua sắm" />
+        android:title="@string/shopping" />
     <item
         android:id="@+id/giftFragment"
-        android:icon="@drawable/ic_baseline_card_giftcard_24"
-        android:title="Quà của tôi"
+        android:icon="@drawable/ic_baseline_bar_chart_24"
+        android:title="Bar Chart"
+        />
+    <item
+        android:id="@+id/settingFragment"
+        android:icon="@drawable/ic_baseline_settings_24"
+        android:title="Cài đặt"
         />
 </menu>

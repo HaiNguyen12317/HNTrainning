@@ -21,4 +21,7 @@ interface AccountDao {
     @Query("delete from account where user_name = :useName")
     suspend fun delete(useName : String)
 
+    @Query("select * from account where user_name = :name")
+    suspend fun getAllAccountByName(name: String) : Account
+//
 }

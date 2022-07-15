@@ -4,12 +4,15 @@
     android:id="@+id/drawer_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F9FAFF">
+
+    >
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.activity.MainActivity">
+        tools:context=".ui.activity.MainActivity"
+        android:background="?attr/background_color1"
+        >
 
         <LinearLayout
             android:id="@+id/ln_head"
@@ -18,16 +21,17 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-           android:orientation="horizontal"
-            android:background="#FFFFFF"
+            android:orientation="horizontal"
+            android:background="@color/backgroundColor"
             >
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:layout_width="75dp"
                 android:layout_height="match_parent"
                 android:padding="10dp"
-                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"
                 android:src="@mipmap/ic_launcher"
+                android:background="@color/backgroundColor"
                 />
             <LinearLayout
                 android:layout_width="0dp"
@@ -41,28 +45,30 @@
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
-                    android:text="Nguyen Van Hai"
+                    android:text="@string/nguyen_van_hai"
                     android:textStyle="bold"
                     android:gravity="center_vertical"
                     android:textSize="17sp"
-                    />
+                    tools:ignore="HardcodedText,NestedWeights" />
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
-                    android:text="Đăng xuất"
+                    android:text="@string/log_out"
                     android:id="@+id/tv_logout"
                     />
 
             </LinearLayout>
             <ImageView
+                android:id="@+id/img_vnpay"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:padding="10dp"
-                android:layout_marginRight="10dp"
+                android:layout_marginEnd="10dp"
                 android:src="@drawable/logo"
-                />
+                android:contentDescription="@string/todo"
+                tools:ignore="ContentDescription" />
             <com.airbnb.lottie.LottieAnimationView
                 android:id="@+id/animationView"
                 android:layout_width="70dp"
@@ -77,6 +83,7 @@
             android:name="androidx.navigation.fragment.NavHostFragment"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:background="@color/backgroundColor"
             app:defaultNavHost="true"
             app:navGraph="@navigation/main_graph"
             app:layout_constraintStart_toStartOf="parent"
@@ -89,9 +96,9 @@
             android:id="@+id/bottom_nav"
             android:layout_width="match_parent"
             android:layout_height="56dp"
-            android:background="#B7C0EF"
-            app:itemRippleColor="#BD5353"
-            app:itemTextColor="#0A2DEF"
+            android:background="@color/bg_bottom"
+            app:itemRippleColor="@color/color_click"
+            app:itemTextColor="@color/color_text_bottom"
             android:pointerIcon="zoom_out"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

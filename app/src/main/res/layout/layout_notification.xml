@@ -17,35 +17,41 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="40dp"
-            android:text="Motification"
+            android:text="@string/notification"
             android:padding="10dp"
             android:gravity="center"
             />
-       <LinearLayout
-           android:layout_width="match_parent"
-           android:layout_height="match_parent"
-           android:orientation="horizontal"
-           android:layout_marginLeft="10dp"
-           >
-           <ImageView
+<!--       <LinearLayout-->
+<!--           android:layout_width="match_parent"-->
+<!--           android:layout_height="match_parent"-->
+<!--           android:orientation="horizontal"-->
+<!--           android:layout_marginLeft="10dp"-->
+<!--           >-->
+<!--           <ImageView-->
 
-               android:layout_width="wrap_content"
-               android:layout_height="match_parent"
-               android:src="@drawable/ic_baseline_skip_previous_24"
-               />
-           <ImageView
-               android:layout_width="wrap_content"
-               android:layout_height="match_parent"
-               android:src="@drawable/ic_baseline_pause_24"
-               />
-           <ImageView
-               android:layout_width="wrap_content"
-               android:layout_height="match_parent"
-               android:src="@drawable/ic_baseline_skip_next_24"
-               />
+<!--               android:layout_width="wrap_content"-->
+<!--               android:layout_height="match_parent"-->
+<!--               android:src="@drawable/ic_baseline_skip_previous_24"-->
+<!--               />-->
+<!--           <ImageView-->
+<!--               android:layout_width="wrap_content"-->
+<!--               android:layout_height="match_parent"-->
+<!--               android:src="@drawable/ic_baseline_pause_24"-->
+<!--               />-->
+<!--           <ImageView-->
+<!--               android:layout_width="wrap_content"-->
+<!--               android:layout_height="match_parent"-->
+<!--               android:src="@drawable/ic_baseline_skip_next_24"-->
+<!--               />-->
 
 
-       </LinearLayout>
+<!--       </LinearLayout>-->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/this_is_notification_demo"
+            android:padding="10dp"
+            />
 
     </LinearLayout>
 

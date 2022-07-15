@@ -1,0 +1,117 @@
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/background_color1"
+    >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.activity.MainActivity"
+        >
+
+        <LinearLayout
+            android:id="@+id/ln_head"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+           android:orientation="horizontal"
+            android:background="@color/backgroundColor"
+            >
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="75dp"
+                android:layout_height="match_parent"
+                android:padding="10dp"
+                android:layout_marginStart="10dp"
+                android:src="@mipmap/ic_launcher"
+                />
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_weight="3"
+                android:padding="10dp"
+                >
+                <TextView
+                    android:id="@+id/tv_username"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:text="@string/nguyen_van_hai"
+                    android:textStyle="bold"
+                    android:gravity="center_vertical"
+                    android:textSize="17sp"
+                    tools:ignore="HardcodedText,NestedWeights" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:text="@string/log_out"
+                    android:id="@+id/tv_logout"
+                    />
+
+            </LinearLayout>
+            <ImageView
+                android:id="@+id/img_vnpay"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:padding="10dp"
+                android:layout_marginEnd="10dp"
+                android:src="@drawable/logo"
+                android:contentDescription="@string/todo"
+                tools:ignore="ContentDescription" />
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/animationView"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                app:lottie_url="REPLACE_JSON_URL"
+                app:lottie_autoPlay="true"
+                app:lottie_rawRes="@raw/notify"
+                android:background="@color/backgroundColor"
+                app:lottie_loop="true"/>
+        </LinearLayout>
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/nav_hos_main_fragment"
+            android:name="androidx.navigation.fragment.NavHostFragment"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:defaultNavHost="true"
+            app:navGraph="@navigation/main_graph"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ln_head"
+            app:layout_constraintBottom_toTopOf="@id/bottom_nav"
+
+            />
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottom_nav"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:background="@color/bg_bottom"
+            app:itemRippleColor="@color/color_click"
+            app:itemTextColor="@color/color_text_bottom"
+            android:pointerIcon="zoom_out"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:menu="@menu/drawer_nav_menu" >
+        </com.google.android.material.bottomnavigation.BottomNavigationView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/navPage"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        app:headerLayout="@layout/layout_header"
+        app:menu="@menu/drawer_nav_menu" />
+
+</androidx.drawerlayout.widget.DrawerLayout>

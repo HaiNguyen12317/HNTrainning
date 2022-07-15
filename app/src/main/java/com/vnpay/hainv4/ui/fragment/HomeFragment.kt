@@ -1,6 +1,7 @@
 package com.vnpay.hainv4.ui.fragment
 
 import android.content.Context
+import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
@@ -63,6 +64,11 @@ class HomeFragment : Fragment() {
 
         binding.hotel.setOnClickListener {
             val action = HomeFragmentDirections.actionHomeFragmentToHotelFragment()
+            findNavController().navigate(action)
+        }
+        binding.lnCk.setOnClickListener {
+            val action = HomeFragmentDirections.actionHomeFragmentToChartFragment()
+//            action.arguments.putString("method","bars")
             findNavController().navigate(action)
         }
 

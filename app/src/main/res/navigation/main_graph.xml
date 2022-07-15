@@ -11,6 +11,9 @@
         <action
             android:id="@+id/action_homeFragment_to_hotelFragment"
             app:destination="@id/hotelFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_chartFragment"
+            app:destination="@id/chartFragment" />
     </fragment>
     <fragment
         android:id="@+id/giftFragment"
@@ -30,6 +33,18 @@
         android:label="HotelFragment" >
         <action
             android:id="@+id/action_hotelFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/settingFragment"
+        android:name="com.vnpay.hainv4.ui.fragment.SettingFragment"
+        android:label="SettingFragment" />
+    <fragment
+        android:id="@+id/chartFragment"
+        android:name="com.vnpay.hainv4.ui.fragment.ChartFragment"
+        android:label="ChartFragment" >
+        <action
+            android:id="@+id/action_chartFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
     </fragment>
 </navigation>

@@ -20,8 +20,9 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     init {
 //        getAllHotel()
         getHotel()
-        Log.d("anhhai","hottt : ${listHotels.value?.size}")
+
     }
+
 
     private val accountDao = AccountDatabase.getInstance(application).getAccountDao()
 
@@ -36,9 +37,10 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         accountDao.delete(string)
     }
 
-//    private fun getHotels(): LiveData<ArrayList<Hotel>> = HotelManager.listHotel
-//    val listHotel: LiveData<ArrayList<Hotel>>
-//        get() = getHotels()
+    suspend fun getAccountByName(name: String) : Account{
+       return accountDao.getAllAccountByName(name)
+    }
+
 
     private fun getItems(): LiveData<ArrayList<Item>> = HotelManager.listItem
     val item: LiveData<ArrayList<Item>>
@@ -109,5 +111,9 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         }
 //
     }
+    private val _isRegister = MutableLiveData<Boolean>()
+    val isRegister : LiveData<Boolean>
+        get() = _isRegister
+
 }
 
